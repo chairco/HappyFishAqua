@@ -1,7 +1,7 @@
 {
-  "name": "todo",
+  "name": "aqua-purple_client",
   "version": "1.0.0",
-  "description": "todo: An Ionic project",
+  "description": "aqua-purple_client: An Ionic project",
   "dependencies": {
     "express": "4.8.4",
     "gulp": "^3.5.6",
