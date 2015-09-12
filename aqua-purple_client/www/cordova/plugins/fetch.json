@@ -1,0 +1,10 @@
+{
+    "tutk-kalay-p2ptunnelagent": {
+        "source": {
+            "type": "local",
+            "path": "plugins/tutk-kalay-p2ptunnelagent"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
