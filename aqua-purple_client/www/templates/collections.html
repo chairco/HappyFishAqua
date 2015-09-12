@@ -1,20 +1,81 @@
 <ion-view view-title="Collections">
   <ion-content>
     <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
+    <h1>Collections</h1>
   </ion-content>
-  <ion-tabs class="tabs-royal tabs-icon-only">
+ <ion-footer-bar class="bar bar-footer bar-royal" style="display:table; width:100%; text-align:center;" ng-controller="KalayCtrl">
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-stats-bars button-clear" ng-click="toggleOverlay('aqua_stats');"></button>
+    </div>
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-ios-partlysunny button-clear" ng-click="toggleOverlay('aqua_weather');"></button>
+    </div>
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-ios-nutrition button-clear" ng-click="toggleOverlay('aqua_feeding');"></button>
+    </div>
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-music-note button-clear" ng-click="toggleOverlay('aqua_music');"></button>
+    </div>
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-wrench button-clear" ng-click="toggleOverlay('aqua_tools');"></button>
+    </div>
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-share button-clear" ng-click="toggleOverlay('aqua_social');"></button>
+    </div>
+  </ion-footer-bar>
 
-  <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
-    <!-- Tab 1 content --><p>1dddd2222</p>
-  </ion-tab>
+<!-- Overlay footer bar -->
+<!-- Stats -->
+  <ion-footer-bar id="aqua_stats" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-stats-bars button-clear"></button>
+    </div>
+  </ion-footer-bar>
 
-  <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
-    <!-- Tab 2 content --><p>12sa22222</p>
-  </ion-tab>
+<!-- Virtual Weather -->
+  <ion-footer-bar id="aqua_weather" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-ios-partlysunny button-clear""></button>
+    </div>
+  </ion-footer-bar>
 
-  <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
-    <!-- Tab 3 content --><p>12322222</p>
-  </ion-tab>
+<!-- Feeding -->
+  <ion-footer-bar id="aqua_feeding" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl" >
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-ios-nutrition button-clear"></button>
+    </div>
+  </ion-footer-bar>
 
-</ion-tabs>
+<!-- Music -->
+  <ion-footer-bar id="aqua_music" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-music-note button-clear"></button>
+    </div>
+  </ion-footer-bar>
+
+<!-- Tools -->
+  <ion-footer-bar id="aqua_tools" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-wrench button-clear"></button>
+    </div>
+  </ion-footer-bar>
+
+<!-- Social -->
+  <ion-footer-bar id="aqua_social" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
+      <button class="button icon ion-share button-clear" ng-click="alert('Not implemented yet. Sorry...');"></button>
+    </div>
+  </ion-footer-bar>
+
+
 </ion-view>
