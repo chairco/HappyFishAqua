@@ -1,6 +1,33 @@
 angular.module('starter.controllers', ['ion-tree-list'])
 
 .controller('KalayCtrl', function($scope, $ionicScrollDelegate) {
+    
+    aqua_stats   = document.getElementById("aqua_stats");
+    aqua_weather = document.getElementById("aqua_weather");
+    aqua_feeding = document.getElementById("aqua_feeding");
+    aqua_music   = document.getElementById("aqua_music");
+    aqua_tools   = document.getElementById("aqua_tools");
+    aqua_social  = document.getElementById("aqua_social");
+    
+    $scope.alert = function(text) {
+        alert(text);  
+    };
+    $scope.toggleOverlay = function(id) {
+        var overlay_id = eval(id);
+        if (overlay_id.getAttribute("style") == "display:block;") {
+            overlay_id.setAttribute("style", "display:none;");
+            return;
+        }
+        aqua_stats.setAttribute("style", "display:none;");
+        aqua_weather.setAttribute("style", "display:none;");
+        aqua_feeding.setAttribute("style", "display:none;");
+        aqua_music.setAttribute("style", "display:none;");
+        aqua_tools.setAttribute("style", "display:none;");
+        aqua_social.setAttribute("style", "display:none;");
+        
+        overlay_id.setAttribute("style", "display:block;");
+    };
+    
     var success = function(gmappedport) {
         //alert("Handshake completed!(" + gmappedport + ")");
         //document.getElementById("live_camera").innerHTML = '<img src="http://127.0.0.1:' + gmappedport + '/?action=stream" style="height: 100vh">';
@@ -13,8 +40,13 @@ angular.module('starter.controllers', ['ion-tree-list'])
         alert("Error calling Tunnel Plugin");
     }
 //hello.greet("World", success, failure);
-    p2ptunnel.startP2PTunnel("A8SPV2MUX7BVXZCP111A", success, failure);
+    if (typeof p2ptunnel != 'undefined') {
+      p2ptunnel.startP2PTunnel("A8SPV2MUX7BVXZCP111A", success, failure);
 //document.getElementById("live_camera").innerHTML = '<img src="http://127.0.0.1:' + gmappedport + '/?action=stream" style="height: 100vh">';
+    }
+    
+    
+    
 })
 
 .controller('SideMenuCtrl', function($scope) {
