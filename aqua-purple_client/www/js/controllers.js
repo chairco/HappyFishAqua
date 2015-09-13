@@ -1,7 +1,7 @@
 angular.module('starter.controllers', ['ion-tree-list'])
 
-.controller('KalayCtrl', function($scope, $ionicScrollDelegate) {
-    
+.controller('KalayCtrl', function($scope, $ionicScrollDelegate, $timeout) {
+    var overlay_id;
     aqua_stats   = document.getElementById("aqua_stats");
     aqua_weather = document.getElementById("aqua_weather");
     aqua_feeding = document.getElementById("aqua_feeding");
@@ -12,22 +12,27 @@ angular.module('starter.controllers', ['ion-tree-list'])
     $scope.alert = function(text) {
         alert(text);  
     };
+
+    var current_overlay_id = null, overlay_id;
     $scope.toggleOverlay = function(id) {
-        var overlay_id = eval(id);
-        if (overlay_id.getAttribute("style") == "display:block;") {
-            overlay_id.setAttribute("style", "display:none;");
-            return;
-        }
-        aqua_stats.setAttribute("style", "display:none;");
-        aqua_weather.setAttribute("style", "display:none;");
-        aqua_feeding.setAttribute("style", "display:none;");
-        aqua_music.setAttribute("style", "display:none;");
-        aqua_tools.setAttribute("style", "display:none;");
-        aqua_social.setAttribute("style", "display:none;");
+        overlay_id = eval(id);
         
-        overlay_id.setAttribute("style", "display:block;");
+        if (current_overlay_id !== null) {
+            current_overlay_id.classList.remove("aqua-overlay-enter");
+            current_overlay_id.classList.add("aqua-overlay-leave");
+        }
+        if (overlay_id === current_overlay_id) {
+            current_overlay_id = null;
+            return;
+        } 
+        
+        overlay_id.classList.remove("aqua-overlay-leave");
+        overlay_id.classList.add("aqua-overlay-enter");
+        current_overlay_id = overlay_id;
     };
     
+    
+
     var success = function(gmappedport) {
         //alert("Handshake completed!(" + gmappedport + ")");
         //document.getElementById("live_camera").innerHTML = '<img src="http://127.0.0.1:' + gmappedport + '/?action=stream" style="height: 100vh">';
@@ -41,11 +46,24 @@ angular.module('starter.controllers', ['ion-tree-list'])
     }
 //hello.greet("World", success, failure);
     if (typeof p2ptunnel != 'undefined') {
-      p2ptunnel.startP2PTunnel("A8SPV2MUX7BVXZCP111A", success, failure);
+      //p2ptunnel.startP2PTunnel("A8SPV2MUX7BVXZCP111A", success, failure);
 //document.getElementById("live_camera").innerHTML = '<img src="http://127.0.0.1:' + gmappedport + '/?action=stream" style="height: 100vh">';
     }
     
-    
+    $scope.labels = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00"];
+  $scope.data = [
+    [65, 59, 80, 81, 56, 55, 40, 55,55,55,55,55, 66]
+  ];
+  $scope.onClick = function (points, evt) {
+    console.log(points, evt);
+  };
+
+  // Simulate async data update
+  $timeout(function () {
+    $scope.data = [
+      [28, 48, 40, 19, 86, 27, 90, 55,55,55,55,55, 66]
+    ];
+  }, 3000);
     
 })
 
