@@ -1,5 +1,5 @@
-<ion-view view-title="Collections">
-  <ion-content>
+<ion-view view-title="Collections" ng-controller="KalayCtrl">
+  <ion-content style="height:100%;">
     <h1>Collections</h1>
     <h1>Collections</h1>
     <h1>Collections</h1>
@@ -13,7 +13,7 @@
     <h1>Collections</h1>
     <h1>Collections</h1>
   </ion-content>
- <ion-footer-bar class="bar bar-footer bar-royal" style="display:table; width:100%; text-align:center;" ng-controller="KalayCtrl">
+ <ion-footer-bar class="bar bar-footer bar-royal" style="display:table; width:100%; text-align:center;">
     <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
       <button class="button icon ion-stats-bars button-clear" ng-click="toggleOverlay('aqua_stats');"></button>
     </div>
@@ -36,42 +36,60 @@
 
 <!-- Overlay footer bar -->
 <!-- Stats -->
-  <ion-footer-bar id="aqua_stats" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
-    <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
-      <button class="button icon ion-stats-bars button-clear"></button>
-    </div>
+  <ion-footer-bar id="aqua_stats" class="bar bar-subfooter bar-dark aqua-overlay">
+      <div class="list">
+        <div ng-click="toggleOverlay('aqua_stats');" class="item item-divider item-dark" style="height:2.2em; font-size: 1em; font-weight:bold; background-color: rgba(0, 0, 0, 0); border-width: 0; border-bottom-width: 1px; border-color: rgba(255, 255, 255, 0.5);"> 
+          <pre>&lt; Aqua Stats &gt;</pre>
+        </div>
+        <div class="item item-dark" style="background-color: rgba(0, 0, 0, 0); border-width: 0; border-bottom-width: 1px; border-color: rgba(255, 255, 255, 0.16);">
+          <div style="text-align:left;">Temperature: 27˚C</div>
+          <canvas id="temp_chart" width="640px" height="96px" class="chart chart-line chart-xl ng-isolate-scope" chart-data="data" chart-options="options" chart-labels="labels" style="width:100% !important;"></canvas>
+        </div>
+        <div class="item item-dark" style="background-color: rgba(0, 0, 0, 0); border-width: 0; border-bottom-width: 1px; border-color: rgba(255, 255, 255, 0.16);">
+          <div style="text-align:left;">pH: 6.9</div>
+          <canvas id="temp_chart" width="640px" height="96px" class="chart chart-line chart-xl ng-isolate-scope" chart-data="data" chart-options="options" chart-labels="labels" style="width:100% !important;"></canvas>
+        </div>
+        <div class="item item-dark" style="background-color: rgba(0, 0, 0, 0); border-width: 0; border-bottom-width: 1px; border-color: rgba(255, 255, 255, 0.16);">
+          <div style="text-align:left;">Oxygen: 100 ppm</div>
+          <canvas id="temp_chart" width="640px" height="96px" class="chart chart-line chart-xl ng-isolate-scope" chart-data="data" chart-options="options" chart-labels="labels" style="width:100% !important;"></canvas>
+        </div>
+        <div class="item item-dark" style="background-color: rgba(0, 0, 0, 0); border-width: 0; border-bottom-width: 1px; border-color: rgba(255, 255, 255, 0.16);">
+          <div style="text-align:left;">Carbon Dioxide: 5 ppm</div>
+          <canvas id="temp_chart" width="640px" height="96px" class="chart chart-line chart-xl ng-isolate-scope" chart-data="data" chart-options="options" chart-labels="labels" style="width:100% !important;"></canvas>
+        </div>
+      </div>
   </ion-footer-bar>
 
 <!-- Virtual Weather -->
-  <ion-footer-bar id="aqua_weather" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+  <ion-footer-bar id="aqua_weather" class="bar bar-subfooter bar-dark aqua-overlay" ng-controller="KalayCtrl">
     <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
       <button class="button icon ion-ios-partlysunny button-clear""></button>
     </div>
   </ion-footer-bar>
 
 <!-- Feeding -->
-  <ion-footer-bar id="aqua_feeding" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl" >
+  <ion-footer-bar id="aqua_feeding" class="bar bar-subfooter bar-dark aqua-overlay" ng-controller="KalayCtrl" >
     <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
       <button class="button icon ion-ios-nutrition button-clear"></button>
     </div>
   </ion-footer-bar>
 
 <!-- Music -->
-  <ion-footer-bar id="aqua_music" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+  <ion-footer-bar id="aqua_music" class="bar bar-subfooter bar-dark aqua-overlay" ng-controller="KalayCtrl">
     <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
       <button class="button icon ion-music-note button-clear"></button>
     </div>
   </ion-footer-bar>
 
 <!-- Tools -->
-  <ion-footer-bar id="aqua_tools" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+  <ion-footer-bar id="aqua_tools" class="bar bar-subfooter bar-dark aqua-overlay" ng-controller="KalayCtrl">
     <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
       <button class="button icon ion-wrench button-clear"></button>
     </div>
   </ion-footer-bar>
 
 <!-- Social -->
-  <ion-footer-bar id="aqua_social" class="bar bar-subfooter bar-dark aqua-overlay" style="display:none;" ng-controller="KalayCtrl">
+  <ion-footer-bar id="aqua_social" class="bar bar-subfooter bar-dark aqua-overlay" ng-controller="KalayCtrl">
     <div style="display:table-cell; table-layout: fixed; margin: 0px auto;">
       <button class="button icon ion-share button-clear" ng-click="alert('Not implemented yet. Sorry...');"></button>
     </div>
